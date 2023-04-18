@@ -121,7 +121,7 @@ class Backend:
 
 if __name__ == '__main__':
 
-    proxy_list, backend_list, key = read_configure("./config.json")
+    proxy_list, backend_list, key = read_configure("config.cfg")
     backend_instances = []
     for backend_ in backend_list:
         b = Backend(port=backend_.port, conf_proxy_list=proxy_list, conf_key=key)

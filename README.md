@@ -17,8 +17,8 @@ KAUST_CS231_Project, To build a proxy server
 ## Assumptions
 
 * The user can only access the Proxy Ports. the configuration file is unknown and untouchable for the user
-* For convenience, we only consider proxy has only 1 machine with different ports, the same as backend.
-* The configuration file is right, without being corrupted.
+* For convenience, we only consider proxies are running on only 1 machine but with different ports, the same as backend.
+* The configuration file is right, without being corrupted. Because it's invisible to users.
 
 ## How to Run it
 
@@ -65,7 +65,10 @@ nc <ip> <port>
 e.g.
 nc 127.0.0.1 11451
 ```
-
+For test, you can use the python file in the `client_for_test` directory, but it is the same functionality as nc.
+```shell
+python client_for_test/bad_client_LI.py --ip 127.0.0.1 --port 11451
+```
 ## Functionality
 
 ```                                        
@@ -102,3 +105,18 @@ Res1 Res2
 ## Avoid being Attacked
 * SYN Flood. Open the Syn Cookie(Linux) `sysctl -w net.ipv4.tcp_syncookies=1`
 * Max QPS is 100 for new user in proxy. For connections that already established, it depends on the hardware
+
+## Directory structure
+
+```
+├── README.md
+├── backend.py
+├── client_for_test
+│   ├── bad_client_LI.py
+│   └── good_client_LI.py
+├── config.cfg
+├── proxy.py
+├── test_all.py
+└── utils.py
+
+```

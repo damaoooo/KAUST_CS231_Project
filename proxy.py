@@ -156,12 +156,12 @@ class Proxy:
 if __name__ == '__main__':
 
     arg_parser = argparse.ArgumentParser()
-    arg_parser.add_argument("--allow_local", "-l", default=True, type=bool,
+    arg_parser.add_argument("--allow_local", "-l", default=True, type=bool, required=False,
                             help="Allow 127.0.0.1 as the proxy and backend")
     args = arg_parser.parse_args()
     allow_local = args.allow_local
 
-    proxy_list, backend_list, key = read_configure("./config.json")
+    proxy_list, backend_list, key = read_configure("config.cfg")
     proxy_instances = []
     for proxy_ in proxy_list:
         p = Proxy(port=proxy_.port, conf_backend_list=backend_list, conf_key=key, conf_allow_local=allow_local)
