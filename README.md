@@ -4,9 +4,15 @@ KAUST_CS231_Project, To build a proxy server
 ![GitHub Pipenv locked Python version](https://img.shields.io/badge/python-%3E%3D3.7-blue)
 ![Build Pass Green](https://img.shields.io/badge/build-passed-green)
 
-> Welcome to push issues in Github! 🥰
+> Welcome to push issues in GitHub! 🥰
 
-[toc]
+## TOC
+
+- [Assumptions](#assumptions)
+- [How to Run it](#how-to-run-it)
+- [Functionality](#functionality)
+- [Avoid Being Attacked](#avoid-being-attacked)
+
 
 ## Assumptions
 
@@ -15,16 +21,25 @@ KAUST_CS231_Project, To build a proxy server
 * The configuration file is right, without being corrupted.
 
 ## How to Run it
-The program will automatically read `config.json` in the same dictory.
+
+### Download
+```shell
+git clone https://github.com/damaoooo/KAUST_CS231_Project
+cd KAUST_CS231_Project
+```
+
+The program will automatically read `config.json` in the same directory.
 ### Run it
 Run the Proxy
 ```shell
 python proxy.py <--allow_local>
 ```
+`--allow_local` means whether you allow the traffic from `127.0.0.1` . By default, it's true. 
+if not very interested in it, you don't need to provide it to the program.
 
 Run the Backend
 ```shell
-python proxy.py <--allow_local>
+python proxy.py
 ```
 
 ### Configuration File
@@ -42,6 +57,14 @@ python proxy.py <--allow_local>
 }
 ```
 You can modify to meet your requirement. Just follow the sample format.
+
+### Client
+just use the native client.
+```shell
+nc <ip> <port>
+e.g.
+nc 127.0.0.1 11451
+```
 
 ## Functionality
 
@@ -78,4 +101,4 @@ Res1 Res2
 
 ## Avoid being Attacked
 * SYN Flood. Open the Syn Cookie(Linux) `sysctl -w net.ipv4.tcp_syncookies=1`
-* Max QPS is 100 for new user in proxy, for connections that already established, depends on the hardware
+* Max QPS is 100 for new user in proxy. For connections that already established, it depends on the hardware
