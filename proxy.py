@@ -46,8 +46,8 @@ class Proxy:
     def get_helper(self):
         helper = "\n" + "-" * 50 + "\n"
         helper += f"Hello, Your are in Port: {self.port}\n"
-        helper += f"Input your command, format: ip<Space>port<Space>number1<Space>number2<Enter>\n"
-        helper += f"eg:1.1.1.1 11111 1 2\n"
+        helper += f"Input your command, format: number1<Space>number2<Space>IP<Space>Port<Enter>\n"
+        helper += f"eg:1 2 1.1.1.1 11111\n"
         helper += "You can input number as HEX: 0x1234abcd, or INT: 123 or FLOAT 0.1234\n"
         helper += "the FLOAT will be ROUND 5," \
                   " 1.0 will be considered as 1, 0.000001 will be considered as 0"

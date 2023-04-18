@@ -85,14 +85,14 @@ def parser(s: bytes, allow_local: bool = True) -> Tuple[str, int, Union[float, i
         raise ValueError("command format Error!")
 
     # For IP
-    ip: str = ip_parser(command[0], allow_local=allow_local)
+    ip: str = ip_parser(command[2], allow_local=allow_local)
 
     # Check Port
-    port: int = port_parser(command[1])
+    port: int = port_parser(command[3])
 
     # Check 2 numbers
-    a = number_parser(command[2])
-    b = number_parser(command[3])
+    a = number_parser(command[0])
+    b = number_parser(command[1])
 
     return ip, port, a, b
 
